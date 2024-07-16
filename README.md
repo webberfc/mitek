@@ -1,5 +1,9 @@
 Webber programming test
 
+> [!Caution]
+> This test is incomplete, as documentation and comments need heavy revision.
+
+
 # plot_data_set.m
 This function reads in a data set, a configuration file, and outputs a
 .png of a graph of the data.
@@ -17,6 +21,11 @@ Example call:
 Will generate a plot of the data in data1.csv according to the
 configuration specified in config1.csv and save the resulting plot to
 example1.png
+
+TODO you mentioned month vs day in e-mail, ensure that is discussed here.
+
+TODO you mentioned proper names for the columns, ensure that is discussed
+here and in configuration.
 
 ## Configuration
 To configure the plot, copy a configuration such as `tests/config1.csv`
