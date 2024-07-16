@@ -1,0 +1,10 @@
+# Prevent Matlab autosaves from being added
+*.asv
+
+# Prevent the git repo from adding outputs
+*.png
+
+# Exception: explicitly allow these three outputs
+!example1.png
+!example2.png
+!example3.png

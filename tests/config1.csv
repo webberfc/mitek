@@ -1,0 +1,5 @@
+key,value,comment
+Mean value line,show,"Options are ""show"" or ""not"". Default is ""not"". Using default will log a warning."
+Linear data fit line,show,"Options are ""show"" or ""not"". Default is ""not"". Using default will log a warning."
+xlabel,date,Label should conform to https://www.mathworks.com/help/matlab/titles-and-labels.html
+ylabel,hours engine running,"If you find a character should be supported but is not, please contact Fred at ..."
