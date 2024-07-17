@@ -1,7 +1,5 @@
 % Function to plot data based on configuration
 function plot_data_set(data_file, config_file, output_file)
-    % plot_data_set takes data and a configuration file, then generates a
-    % plot that it saves to the specified file.
     % PLOT_DATA_SET reads data and configuration files, plots data with specified features, and saves the plot.
     %   plot_data_set(data_file, config_file, output_file)
     %
@@ -131,10 +129,10 @@ function [datelabels, dates, values, config] = prepInputs(data_file_in, config_f
     %   output_file_in  - Path where the PNG plot will be saved.
     %
     % OUTPUTS:
-    %   datelabels  - the sorted list of unique dates extracted from 'data_file_in'.
-    %   dates       - Numeric array of dates extracted from 'data_file_in'.
-    %   values      - Numeric array of values extracted from 'data_file_in'.
-    %   config      - Table containing configuration settings read from 'config_file_in'.
+    %   datelabels  - the sorted list of unique dates.
+    %   dates       - array of dates.
+    %   values      - Numeric array of values.
+    %   config      - The .csv file containing the configuration
     %
     % DESCRIPTION:
     %   The function reads data from 'data_file_in' and configuration from
@@ -160,9 +158,14 @@ function [datelabels, dates, values, config] = prepInputs(data_file_in, config_f
     if any(year(dates) < 1900)
         disp("WARNING! Some dates are before the year 1900, please verify")
     end
+
+    % This identifies unique dates, and then sorts the list.
+    % This is used to set the domain of the x axis.
+    % The other two outputs are unused, hence ~ ~    
     [datelabels, ~, ~] = unique(dates);
     values = data.value;
 
+    % Read the specified .csv file containing the configuration
     config = readtable(config_file_in, Delimiter = ",", RowNamesColumn = 1);
 
     % -------------------------------------------
@@ -227,11 +230,15 @@ function mustContainKeys(tableIn)
     % Convert the cell to an array of strings
     % Also remove leading and trailing whitespace
     theKeys = strip(string(tableIn.key));
+
     % List the keys that are required
-    requiredKeys = [MitekConstants.CFG_MEAN_VAL, MitekConstants.CFG_LIN_LINE, MitekConstants.CFG_XLABEL, MitekConstants.CFG_YLABEL];
+    requiredKeys = [MitekConstants.CFG_MEAN_VAL, ...
+        MitekConstants.CFG_LIN_LINE, ...
+        MitekConstants.CFG_XLABEL, ...
+        MitekConstants.CFG_YLABEL];
+
     % Require that the requiredKeys are present, not the other way around
     % This way, the configuration is extensible later
-
     if ~ismember(requiredKeys, theKeys)
         eid = 'InputError:Required key missing';
         msg = 'Key not a valid value';
@@ -271,6 +278,9 @@ function validateDataAndConfig(dates_fv, vals_fv, config, output_file_name)
 
     % Validate the arguments. This must be first.
     % Because this must be first, a separate function is required.
+    % The #ok<INUSA> tells Matlab that we intentionally are not using
+    % a variable again; this is deliberate, as it leverages Matlab's
+    % established validation system.
     arguments
         dates_fv {mustBeDateTime}
         vals_fv {mustBeReal, mustBeFinite, mustBeNonNan} %#ok<INUSA>
@@ -278,6 +288,8 @@ function validateDataAndConfig(dates_fv, vals_fv, config, output_file_name)
         output_file_name {string} %#ok<INUSA>
     end
 
+    % Provide the user with feedback regarding how well the data was
+    % parsed.
     fprintf("Input contained (%d x %d) data points.\n", size(dates_fv));
     disp("Using the following configuration:");
     disp(config);
