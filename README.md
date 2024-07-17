@@ -35,76 +35,33 @@ xmlns="http://www.w3.org/TR/REC-html40">
 href="file:///C:/Users/dev/AppData/Local/Temp/msohtmlclip1/01/clip.htm">
 <link rel=File-List
 href="file:///C:/Users/dev/AppData/Local/Temp/msohtmlclip1/01/clip_filelist.xml">
-<style>
-<!--table
-	{mso-displayed-decimal-separator:"\.";
-	mso-displayed-thousand-separator:"\,";}
-@page
-	{margin:.75in .7in .75in .7in;
-	mso-header-margin:.3in;
-	mso-footer-margin:.3in;}
-tr
-	{mso-height-source:auto;}
-col
-	{mso-width-source:auto;}
-br
-	{mso-data-placement:same-cell;}
-td
-	{padding-top:1px;
-	padding-right:1px;
-	padding-left:1px;
-	mso-ignore:padding;
-	color:black;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Aptos Narrow", sans-serif;
-	mso-font-charset:0;
-	mso-number-format:General;
-	text-align:general;
-	vertical-align:bottom;
-	border:none;
-	mso-background-source:auto;
-	mso-pattern:auto;
-	mso-protection:locked visible;
-	white-space:nowrap;
-	mso-rotate:0;}
-.xl65
-	{font-weight:700;
-	font-family:Arial, sans-serif;
-	mso-font-charset:0;
-	background:#D9D9D9;
-	mso-pattern:black none;}
-.xl66
-	{font-family:Arial, sans-serif;
-	mso-font-charset:0;}
-.xl67
-	{text-align:left;
-	white-space:normal;}
--->
-</style></head>
+</head>
+
 <body link="#467886" vlink="#96607D">
+
+
 key | value | comment
 -- | -- | --
-Mean value line | show | Options are "show" or "not". Default is "not". Using default will log a warning.
-Linear data fit line | show | Options are "show" or "not". Default is "not". Using default will log a warning.
-xlabel | date | Label should conform to https://www.mathworks.com/help/matlab/titles-and-labels.html
-ylabel | hours engine running
-</body></html>
+Mean value line | show | Options are "show" or "not". Default is   "not". Using default will log a warning.
+Linear data fit line | show | Options are "show" or "not". Default is   "not". Using default will log a warning.
+xlabel | last service date | Label should conform to   https://www.mathworks.com/help/matlab/titles-and-labels.html
+ylabel | flight hours remaining to next service | Label should conform to   https://www.mathworks.com/help/matlab/titles-and-labels.html
+
+
+
+</body>
+
+</html>
+
 
 
 ## Data Interface Specifications
 Data can be generated in a tool such as Excel and saved as a .csv.
 
-> [!IMPORTANT] If you use a tool like Excel, ensure that the
-display is what is being rendered to the file on export. In Excel, this
-means to format everything as text, NOT as a date (the author had an issue
-where a date rendered correctly in Excel, but the year rendered as 24
-instead of 2024 in Matlab; there may be other ways to avoid this).
+> [!IMPORTANT]
+> If you use a tool like Excel, ensure that the display is what is being rendered to the file on export.
 
-User responsibilities not presently handled (if these are requirements or
-frequent issues, please open an issue and tag @webberfc):
+User responsibilities:
 - The data csv should have the first row with two entries: `date` and
 `value`.
 - Dates should be entered in `numerical month/day/four digit year` format.
@@ -126,51 +83,7 @@ xmlns="http://www.w3.org/TR/REC-html40">
 href="file:///C:/Users/dev/AppData/Local/Temp/msohtmlclip1/01/clip.htm">
 <link rel=File-List
 href="file:///C:/Users/dev/AppData/Local/Temp/msohtmlclip1/01/clip_filelist.xml">
-<style>
-<!--table
-	{mso-displayed-decimal-separator:"\.";
-	mso-displayed-thousand-separator:"\,";}
-@page
-	{margin:.75in .7in .75in .7in;
-	mso-header-margin:.3in;
-	mso-footer-margin:.3in;}
-tr
-	{mso-height-source:auto;}
-col
-	{mso-width-source:auto;}
-br
-	{mso-data-placement:same-cell;}
-td
-	{padding-top:1px;
-	padding-right:1px;
-	padding-left:1px;
-	mso-ignore:padding;
-	color:black;
-	font-size:11.0pt;
-	font-weight:400;
-	font-style:normal;
-	text-decoration:none;
-	font-family:"Aptos Narrow", sans-serif;
-	mso-font-charset:0;
-	mso-number-format:General;
-	text-align:general;
-	vertical-align:bottom;
-	border:none;
-	mso-background-source:auto;
-	mso-pattern:auto;
-	mso-protection:locked visible;
-	white-space:nowrap;
-	mso-rotate:0;}
-.xl65
-	{font-weight:700;
-	font-family:Arial, sans-serif;
-	mso-font-charset:0;
-	background:#D9D9D9;
-	mso-pattern:black none;}
-.xl66
-	{mso-number-format:"Short Date";}
--->
-</style></head>
+</head>
 <body link="#467886" vlink="#96607D">
 
 date | value
@@ -209,7 +122,7 @@ black dashed. This helps the customer see the correlation between the last
 time since the engine was serviced by the depot and the expected number of
 hours remaining.
 
-[!example3.png]
+![Example of Output](https://github.com/webberfc/mitek/blob/main/example3.png)
 
 # Contributing
 Please ensure pull requests conform to company CI standards.
