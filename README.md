@@ -160,8 +160,8 @@ mitek/
 │
 ├── plot_data_set.m          # Main script to plot data based on configuration
 ├── MitekConstants.m         # Class containing constant values
-│
 ├── run_tests.m              # Script demonstrating usage
+│
 ├── README.md                # Project overview and instructions (you are here)
 └── tests                    # Folder containing sample data and configurations
     ├── config1.csv          # Configuration demonstrating two lines and two labels
@@ -169,7 +169,7 @@ mitek/
     ├── data1.csv                    # A small data set
     ├── data2_duplicate_dates.csv    # A data set with duplicate and out of sequence dates
     ├── data3_invalid_dates.csv      # A data set that with invalid dates
-    ├── data4_corrupt.csv            # A data set that with invalid value
+    ├── data4_corrupt.csv            # A data set that with invalid values
     └── data5.csv                    # An additional data set
 ```
 
